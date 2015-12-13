@@ -74,6 +74,8 @@ def get_platform():
     platform = "win32"
   elif  xbmc.getCondVisibility('system.platform.ios'):
     platform = "ios"
+  elif  xbmc.getCondVisibility('system.platform.tvos'):
+    platform = "tvos"
   elif  xbmc.getCondVisibility('system.platform.android'):
     if os.uname()[4].startswith("arm"):
       platform = "android"
@@ -88,6 +90,8 @@ def get_libname(platform):
     return "libboblight-osx.0.dylib"
   elif platform == "ios":
     return "libboblight-ios.0.dylib"
+  elif platform == "tvos":
+    return "libboblight-tvos.0.dylib"
   elif platform == "win32":
     return "libboblight-win32.0.dll"
   elif platform == "android" or platform == "androidx86":
